@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Control — Precios Minerales Estratégicos (1976–2026)</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Cotización de Minerales Estratégicos</h1>
+      <span class="subtitle-year">Precios 2026</span>
+    </div>
+    <div class="header-right">
+      <span class="badge">Serie Histórica · 1976–2026 · 50 Años</span>
+      <!-- THEME SWITCH -->
+      <div class="theme-switch" onclick="toggleTheme()">
+        <span class="theme-icon" id="themeIcon">🌙</span>
+        <span class="theme-label" id="themeLabel">Oscuro</span>
+        <div class="toggle-track"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpi-strip" id="kpiStrip"></div>
+
+  <!-- GRÁFICA GENERAL -->
+  <div class="general-section">
+    <div class="section-header">
+      <div class="section-title">Comparativa General — Todos los Minerales (1976–2026)</div>
+      <div class="scale-toggle">
+        <button class="scale-btn" id="btnLinear" onclick="setScale('linear')">Lineal</button>
+        <button class="scale-btn active" id="btnLog" onclick="setScale('logarithmic')">Logarítmica</button>
+      </div>
+    </div>
+    <div class="legend-grid" id="generalLegend"></div>
+    <div class="general-canvas-wrap"><canvas id="generalChart"></canvas></div>
+  </div>
+
+  <!-- GRÁFICAS INDIVIDUALES -->
+  <div class="chart-grid" id="chartGrid"></div>
+
+  <!-- TABLA DE PRODUCTORES -->
+  <div class="table-section">
+    <div class="section-title">Principales Países Productores por Mineral</div>
+    <div class="section-subtitle">Top 10 productores mundiales — Datos actualizados 2024–2025 (USGS Mineral Commodity Summaries 2025)</div>
+    <div class="producers-table-wrap">
+      <table class="producers-table" id="producersTable">
+        <thead>
+          <tr>
+            <th>#</th><th>Mineral</th><th>1°</th><th>2°</th><th>3°</th><th>4°</th><th>5°</th><th>6°</th><th>7°</th><th>8°</th><th>9°</th><th>10°</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="table-source">
+      <strong>Fuentes:</strong><br>
+      • U.S. Geological Survey (USGS) — <a href="https://pubs.usgs.gov/publication/mcs2025" target="_blank">Mineral Commodity Summaries 2025</a> (producción minera mundial 2024)<br>
+      • World Gold Council — <a href="https://www.gold.org/goldhub/data/gold-production-by-country" target="_blank">Global Mine Production by Country 2024</a><br>
+      • The Silver Institute — World Silver Survey 2025<br>
+      • International Platinum Group Metals Association (IPA) — PGM Production Data 2024<br>
+      • International Energy Agency (IEA) — Global Critical Minerals Outlook 2025<br>
+      • Visual Capitalist / NAI500 — Compilaciones basadas en datos USGS y Mining Data Online 2024–2025
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Ministerio del Poder Popular de Desarrollo Minero Ecológico e Industrias Básicas<br>
+    Viceministerio de Inversión y Políticas de Comercialización Minera<br>
+    Fuente de precios: Serie histórica 1976–2026
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
